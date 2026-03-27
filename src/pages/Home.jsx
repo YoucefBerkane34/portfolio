@@ -60,6 +60,15 @@ const stats = [
   { label: "Issues resolved", value: "200+" },
 ];
 
+const gradientText = (accent, accent2) => ({
+  background: `linear-gradient(135deg, ${accent}, ${accent2})`,
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  backgroundClip: "text",
+  color: "transparent",
+  display: "inline-block",
+});
+
 export default function Home({ t, theme }) {
   return (
     <div style={{ paddingTop: 64 }}>
@@ -86,10 +95,7 @@ export default function Home({ t, theme }) {
             color: "var(--text)",
           }}>
             Hi, I'm{" "}
-            <span style={{
-              background: `linear-gradient(135deg, ${t.accent}, ${t.accentSecondary})`,
-              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-            }}>Youcef</span>
+            <span style={gradientText(t.accent, t.accentSecondary)}>Youcef</span>
           </h1>
 
           <h2 style={{
@@ -137,8 +143,7 @@ export default function Home({ t, theme }) {
             <div key={s.label} style={{ textAlign: "center" }}>
               <div style={{
                 fontSize: 36, fontWeight: 800, letterSpacing: -1,
-                background: `linear-gradient(135deg, ${t.accent}, ${t.accentSecondary})`,
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+                ...gradientText(t.accent, t.accentSecondary),
               }}>{s.value}</div>
               <div style={{ color: "var(--text-muted)", fontSize: 14, marginTop: 4 }}>{s.label}</div>
             </div>
