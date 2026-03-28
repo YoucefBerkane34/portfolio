@@ -37,7 +37,7 @@ export default function Navbar({ theme, setTheme, themes, t }) {
             display: "flex", alignItems: "center", justifyContent: "center",
             fontSize: 16, fontWeight: 800, color: "#fff", letterSpacing: -1,
           }}>YB</div>
-          <span style={{ color: "var(--text)", fontWeight: 700, fontSize: 17, letterSpacing: -0.5 }}>Youcef Berkane</span>
+          <span style={{ color: "var(--text)", fontWeight: 700, fontSize: 17, letterSpacing: -0.5 }}>Youcef Berkane Portfolio</span>
         </Link>
 
         {/* Desktop links */}
