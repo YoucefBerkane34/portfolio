@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 const projects = [
   {
     icon: "🛡️",
@@ -50,6 +52,7 @@ const projects = [
 ];
 
 export default function Projects({ t, theme }) {
+  const navigate = useNavigate();
   return (
     <div style={{ paddingTop: 88, paddingBottom: 80 }}>
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
@@ -79,7 +82,9 @@ export default function Projects({ t, theme }) {
               borderRadius: 16, padding: 28,
               display: "flex", flexDirection: "column", gap: 16,
               transition: "all 0.25s",
+              cursor: p.title === "Linux Server Hardening" ? "pointer" : "default",
             }}
+              onClick={() => { if (p.title === "Linux Server Hardening") navigate("/projects/linux-hardening"); }}
               onMouseEnter={e => {
                 e.currentTarget.style.borderColor = t.accent;
                 e.currentTarget.style.boxShadow = `0 8px 32px ${t.accent}18`;
@@ -96,7 +101,19 @@ export default function Projects({ t, theme }) {
                   width: 48, height: 48, borderRadius: 12, fontSize: 22,
                   background: `${t.accent}18`, display: "flex", alignItems: "center", justifyContent: "center",
                 }}>{p.icon}</div>
-                <h3 style={{ fontSize: 16, fontWeight: 700, margin: 0 }}>{p.title}</h3>
+                <div style={{ flex: 1 }}>
+                  <h3 style={{ fontSize: 16, fontWeight: 700, margin: 0 }}>{p.title}</h3>
+                  {p.title === "Linux Server Hardening" && (
+                    <span style={{
+                      fontSize: 10, fontWeight: 700, letterSpacing: 1.5,
+                      textTransform: "uppercase", color: t.accent,
+                      background: `${t.accent}18`, padding: "2px 8px",
+                      borderRadius: 4, display: "inline-block", marginTop: 4,
+                    }}>
+                      📖 View Course →
+                    </span>
+                  )}
+                </div>
               </div>
 
               <p style={{ fontSize: 14, lineHeight: 1.75, color: "var(--text-muted)", margin: 0 }}>

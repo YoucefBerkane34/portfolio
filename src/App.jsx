@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import LinuxHardeningCourse from "./pages/LinuxHardeningCourse";
 
 const themes = {
   dark: {
@@ -86,6 +87,7 @@ export default function App() {
           <Route path="/about" element={<About t={t} theme={theme} />} />
           <Route path="/projects" element={<Projects t={t} theme={theme} />} />
           <Route path="/contact" element={<Contact t={t} theme={theme} />} />
+          <Route path="/projects/linux-hardening" element={<LinuxHardeningCourse t={t} theme={theme} />} />
         </Routes>
       </div>
     </Router>
